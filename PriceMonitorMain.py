@@ -6,7 +6,7 @@ Created on Mon Jan 24 12:30:16 2022
 """
 """
 concept:
-    bot that checks specified amazon webpage, and emails if price is bellow a certain level
+    bot that checks specified amazon webpage, and emails if price is bellow a set price
 
     in 1st method:
     input: amazon URL, max price
@@ -25,4 +25,20 @@ concept:
         current price
         listed maz price
         recommend to buy now
+
+    bonus method:
+        auto runs daily
+        can run mutiple URLs in one shot
 """
+
+
+def priceUnderMax(amazonURL, max_price):
+    """assumes amazonURL is a string, representing an amazon item listing's URL
+    assumes max_price is a numerice, representing the price at which to alert
+    returns a boolean if the price of the item is <= max_price
+    """
+    pass
+
+
+if __name__ == "__main__":
+    print("kittens")
