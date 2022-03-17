@@ -5,7 +5,9 @@ Created on Mon Jan 24 12:30:16 2022
 @author: catal
 """
 from bs4 import BeautifulSoup
-from urllib.request import urlopen
+import requests
+import boto3
+
 """
 concept:
     bot that checks specified amazon webpage, and emails if price is bellow a set price
@@ -30,6 +32,7 @@ concept:
 
     bonus method:
         auto runs daily
+        ?Task Scheduler in Windows to schedule the crawler
         can run mutiple URLs in one shot
 """
 
@@ -40,6 +43,8 @@ def priceUnderMax(URL, max_price):
     returns a boolean if the price of the item is <= max_price
     """
     # get webpage
+    page = requests.get(URL)
+    print(page.text)
     # find current_price
     current_price = 0  # TODO
     # return result
@@ -48,4 +53,4 @@ def priceUnderMax(URL, max_price):
 
 if __name__ == "__main__":
     print("kittens")
-    priceUnderMax("https://www.amazon.ca/gp/product/B00K0A37OG/", 99.99)
+    priceUnderMax("https://www.canadiantire.ca/en/pdp/ninja-professional-food-processor-0430733p.html#srp", 99.99)
